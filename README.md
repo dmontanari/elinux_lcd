@@ -62,6 +62,9 @@ Files installed:
 
                 . : Usage : .
 
+
+#include <lcd_hd44780u.h>
+
 Compile your program with -lelinux_lcd
 
 
