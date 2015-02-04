@@ -1,5 +1,5 @@
 CC = gcc
-TARGET_LIB = librpilcd.so
+TARGET_LIB = libelinux_lcd.so
 TARGET_HEADERS = lcd_hd44780u.h
 
 lib:
@@ -11,7 +11,7 @@ clean_lib:
 
 
 demo:
-	$(CC) -o lcd_demo main.c -lrpilcd
+	$(CC) -o lcd_demo main.c -lelinux_lcd
 
 install_lib:
 	cp $(TARGET_LIB) /usr/local/lib/
