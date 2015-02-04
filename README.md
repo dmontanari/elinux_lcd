@@ -1,9 +1,8 @@
-
                         . : elinux_lcd : .
 
-Library for handle LCD devices using i2c interface (PCF8574)
+Library for LCD devices using i2c interface (PCF8574)
 
-Tested with Raspberry PI model B and HD4478U 20x2 LCD display
+Tested with Raspberry PI model B and HD4478U 20x2 LCD
 
        . : Connections : .
 
@@ -31,13 +30,16 @@ Tested with Raspberry PI model B and HD4478U 20x2 LCD display
 
         $ cd elinux_lcd
 
-3 - Build and install the lib
+3 - Build the library (and install)
 
         $ make lib
 
         $ sudo make install_lib
 
 4 - Build the demo
+
+Edit the main.c file and change the I2C_ADDR macro, to
+match your device's address. Then build.
 
         $ make demo
 
@@ -53,6 +55,8 @@ Tested with Raspberry PI model B and HD4478U 20x2 LCD display
 
         $ sudo ./lcd_demo
 
+Here we need root access because the file /dev/i2c-dev-N is write-protected.
+
 7 - To remove the library, enter the lib directory and do a sudo make uninstall_lib
 
 Files installed:
@@ -66,10 +70,6 @@ Files installed:
 #include <lcd_hd44780u.h>
 
 Compile your program with -lelinux_lcd
-
-
-
-Happy Hack :)
 
 
         -------------------------------------------------------
