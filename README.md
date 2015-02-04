@@ -60,6 +60,10 @@ Files installed:
 /usr/local/include/lcd_hd44870u.h
 /usr/local/lib/librpilcd.so
 
+                . : Usage : .
+
+Compile your program with -lrpilcd
+
 
 
 Happy Hack :)
