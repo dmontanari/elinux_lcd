@@ -25,6 +25,9 @@ void lcd_close();
 
 void lcd_print( const char *data, unsigned char line );
 
+void lcd_print_position( const char *data, unsigned char line, unsigned char col );
+
+
 void lcd_clear( );
 
 void lcd_off( );

@@ -1,5 +1,5 @@
 
-                        . : librpilcd : .
+                        . : elinux_lcd : .
 
 Library for handle LCD devices using i2c interface (PCF8574)
 
@@ -25,11 +25,11 @@ Tested with Raspberry PI model B and HD4478U 20x2 LCD display
 
 1 - Clone the repository
 
-        $ git clone https://github.com/dmontanari/librpilcd.git
+        $ git clone https://github.com/dmontanari/elinux_lcd
 
 2 - Change dir
 
-        $ cd librpilcd
+        $ cd elinux_lcd
 
 3 - Build and install the lib
 
@@ -58,11 +58,11 @@ Tested with Raspberry PI model B and HD4478U 20x2 LCD display
 Files installed:
 
 /usr/local/include/lcd_hd44870u.h
-/usr/local/lib/librpilcd.so
+/usr/local/lib/libelinux_lcd.so
 
                 . : Usage : .
 
-Compile your program with -lrpilcd
+Compile your program with -lelinux_lcd
 
 
 

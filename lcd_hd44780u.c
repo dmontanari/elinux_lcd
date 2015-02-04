@@ -249,8 +249,9 @@ void lcd_close()
 }
 
 
-/// *data MUST be NTZ !
-void lcd_print( const char *data, unsigned char line ) {
+
+void lcd_print_position( const char *data, unsigned char line, unsigned char col )
+{
 
         const char *d = data;
         unsigned char cnt = 0;
@@ -258,10 +259,10 @@ void lcd_print( const char *data, unsigned char line ) {
         switch( line ) {
 
                 case 1:
-                        write_4bits( 0x80 );
+                        write_4bits( 0x80 + col );
                         break;
                 case 2:
-                        write_4bits( 0xC0 );
+                        write_4bits( 0xC0 + col );
                         break;
                 default:
                         /// \TODO: error handler
@@ -283,6 +284,14 @@ void lcd_print( const char *data, unsigned char line ) {
         write_to_display( 0x00 );
 
 }
+
+
+void lcd_print( const char *data, unsigned char line ) {
+
+        lcd_print_position( data, line, 0 );
+
+}
+
 
 void lcd_off( ) {
 
