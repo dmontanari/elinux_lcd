@@ -48,60 +48,52 @@ int main (void)
         unsigned char i = 0;
 
 
-        fprintf( stdout, "Printing some text.........."), fflush( stdout );
 
+        printf( "ELINUX RPi I2C LIB\n" );
+        printf( "I2C with PCF8574\n");
 ///                 12345678901234567890
-        lcd_print( "RPi I2C LCD LIBRARY", 1 );
-        lcd_print( "http://goo.gl/fGLxqw", 2 );
-        fprintf( stdout, "DONE\n" ), fflush( stdout );
-        fprintf( stdout, "Sleeping for 5 seconds......"), fflush( stdout );
+        lcd_print( " ELINUX RPi I2C LIB", 1 );
+        lcd_print( "  I2C with PCF8574", 2 );
+        printf( "Sleeping for 5 seconds......");
         sleep ( 5 );
-        fprintf( stdout, "DONE\n" ), fflush( stdout );
-        fprintf( stdout, "Counting....................");
-        lcd_print( "12345678901234567890", 1 ), fflush( stdout );
-        lcd_print( "abcdefghijklmnopqrst", 2 ), fflush( stdout );
-        fprintf( stdout, "DONE\n" ), fflush( stdout );
-        fprintf( stdout, "Sleeping for 5 seconds......"), fflush( stdout );
-        sleep ( 5 );
-        fprintf( stdout, "DONE\n" ), fflush( stdout );
+        printf( "DONE\n" );
 
+        printf( "It may blink\n");
+        printf( "Turning off and on\n" );
 
-        fprintf( stdout, "Blinking 5 times.."), fflush( stdout );
-
+        lcd_clear();
+///                 12345678901234567890
+        lcd_print( "    It may blink", 1 );
+        lcd_print( " Turning off and on", 2 );
         /// "Blink" a few times
         for ( i=0; i<5; i++ )
         {
                 lcd_off( );
-                usleep( 250000 );
+                usleep( 350000 );
                 lcd_on( );
-                usleep( 250000 );
+                usleep( 350000 );
                 fprintf(stdout, "%d.", i+1 ), fflush( stdout );
         }
-        fprintf( stdout, "DONE\n" ), fflush( stdout );
 
         lcd_clear( );
-        fprintf( stdout, "Shifting some text..........");
-        lcd_print( "shift", 1 );
+        printf( "Scroll\n");
+///                 12345678901234567890
+        lcd_print( "Scroll", 1 );
 
-        for ( i=0;i<15;i++ ) {
+        for ( i=0;i<14;i++ ) {
                 lcd_scroll_right( );
                 usleep( 250000 );
         }
 
-        for ( i = 0; i < 15; i++ ) {
+        for ( i = 0; i < 14; i++ ) {
                 lcd_scroll_left( );
                 usleep( 250000 );
         }
-        fprintf( stdout, "DONE\n" );
 
-        fprintf( stdout, "DONE\n" );
-        fprintf( stdout, "Sleeping for 5 seconds......"), fflush( stdout );
+        lcd_clear();
+        printf( "Show system info\n" );
+        lcd_print( "Show system info", 1 );
         sleep( 5 );
-        fprintf( stdout, "DONE\n"), fflush( stdout );
-        fprintf( stdout, "Clearing...................." ), fflush( stdout );
-        lcd_clear( );
-        fprintf( stdout, "DONE\n"), fflush( stdout );
-        fprintf( stdout, "Test finishedt\n" ), fflush( stdout );
 
         /// Show core temperature
         /// $ cat /sys/class/thermal/thermal_zone0/temp
@@ -128,8 +120,19 @@ int main (void)
                 exit( EXIT_FAILURE );
 
         }
+
+        lcd_clear( );
         lcd_print( "Temperature", 1 );  /// 11 chars
         lcd_print_position( temperature, 1, 12 );
+
+        sleep( 5 );
+        lcd_clear();
+        lcd_print( "Whatever you want", 1 );
+
+        sleep(5);
+        lcd_clear();
+        lcd_print( " clone me at github", 1 );
+        lcd_print( "http://goo.gl/fGLxqw", 2);
 
         lcd_close();
 
